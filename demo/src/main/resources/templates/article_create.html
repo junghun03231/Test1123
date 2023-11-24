@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h3>질문등록</h3>
+    <form th:action="@{/article/create}" th:object="${articleForm}" method="post">
+        <div role="alert" th:if="${#fields.hasAnyErrors()}">
+            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+        </div>
+        <div>
+            <label for="subject"></label>
+            <input type="text" name="subject" id="subject">
+        </div>
+        <div>
+            <label for="content"></label>
+            <textarea name="content" id="content" rows="10"></textarea>
+        </div>
+        <input type="submit" value="저장하기">
+    </form>
+</div>
+</body>
+</html>
